@@ -52,7 +52,7 @@ class PyrogramAccount(AccountInterface):
         except Exception as e:
             raise AuthError(f"Failed to connect: {e}")
 
-        peer = await self.client.resolve_peer('tverse')
+        peer = await self.client.resolve_peer('bums')
         theme_params = "{\"accent_text_color\":\"#6ab2f2\",\"bg_color\":\"#17212b\",\"bottom_bar_bg_color\":\"#17212b\",\"button_color\":\"#5288c1\",\"button_text_color\":\"#ffffff\",\"destructive_text_color\":\"#ec3942\",\"header_bg_color\":\"#17212b\",\"hint_color\":\"#708499\",\"link_color\":\"#6ab3f3\",\"secondary_bg_color\":\"#232e3c\",\"section_bg_color\":\"#17212b\",\"section_header_text_color\":\"#6ab3f3\",\"section_separator_color\":\"#111921\",\"subtitle_text_color\":\"#708499\",\"text_color\":\"#f5f5f5\"}"
         web_view = await self.client.invoke(functions.messages.RequestWebView(
             peer=types.InputPeerUser(
@@ -63,7 +63,7 @@ class PyrogramAccount(AccountInterface):
                 user_id=peer.user_id,
                 access_hash=peer.access_hash
             ),
-            url='https://app.tonverse.app/',
+            url='https://api.bums.bot/',
             start_param='',
             theme_params=types.DataJSON(data=theme_params),
             platform='tdesktop'
